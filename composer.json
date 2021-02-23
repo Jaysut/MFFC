@@ -1,0 +1,20 @@
+{
+	"require": {
+		"noahbuscher/macaw": "dev-master",
+		"illuminate/database": "*",
+		"filp/whoops": "*"
+	},
+	"autoload": {
+		"classmap": [
+			"app/controller",
+			"app/model",
+			"services"
+		]
+	},
+	"repositories": {
+		"packagist": {
+			"type": "composer",
+			"url": "https://mirrors.aliyun.com/composer/"
+		}
+	}
+}
