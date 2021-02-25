@@ -2,7 +2,7 @@
 
 class View
 {
-    const VIEW_BASE_PATH = '/app/view';
+    const VIEW_BASE_PATH = '/app/view/';
 
     public $view;
     public $data;
@@ -27,6 +27,10 @@ class View
 
     public function with($key, $value = null)
     {
+        print_r($key);
+        echo PHP_EOL;
+        print_r($value);
+        die();
         $this->data[$key] = $value;
         return $this;
     }
@@ -45,10 +49,11 @@ class View
 
     public function __call($method, $parameters)
     {
-        if (starts_with($method , 'with')) {
-            return $this->with(snake_case(substr($method , 4)), $parameters[0]);
+        if (starts_with($method, 'with'))
+        {
+            return $this->with(snake_case(substr($method, 4)), $parameters[0]);
         }
 
-        throw new BadMethodCallException("方法 [$method] 不存在");
+        throw new BadMethodCallException("方法 [$method] 不存在！.");
     }
 }

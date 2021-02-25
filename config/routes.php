@@ -12,7 +12,7 @@ Macaw::get('',function() {
 
 Macaw::get('article','HomeController@article');
 
-//Macaw::get('','HomeController@home');
+Macaw::get('home','HomeController@home');
 
 Macaw::$error_callback = function () {
     throw new Exception("未匹配到路由 404 Not Found");
