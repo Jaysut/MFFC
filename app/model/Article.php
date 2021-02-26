@@ -10,6 +10,6 @@ class Article extends Illuminate\Database\Eloquent\Model
      */
     public static function getInfo()
     {
-        return self::find(1)->toArray();
+        return self::all()->toArray();
     }
 }

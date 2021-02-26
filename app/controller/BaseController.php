@@ -14,11 +14,8 @@ class BaseController
         $view = $this->view;
 
         if ($view instanceof View) {
-            echo 'yes';
             extract($view->data);
             require $view->view;
-        } else {
-            echo 'no';
         }
     }
 }

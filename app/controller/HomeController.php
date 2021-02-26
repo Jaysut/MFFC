@@ -8,6 +8,10 @@ class HomeController extends BaseController
 
         $articles = Article::getInfo();
 
+        RedisService::set('key','value',5,'s');
+
+        echo RedisService::get('key');
+
         require dirname(__FILE__) . '/../view/article.php';
     }
 
