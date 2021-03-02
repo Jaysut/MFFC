@@ -17,18 +17,10 @@ class HomeController extends BaseController
 
     public function home()
     {
-        //$this->view = View::make('home');
-
-        $this->view = View::make('home')->with('article',Article::getInfo())
-
-            ->withTitle('MFFC :-D')
-
+        $this->view = View::make('home')
+            ->with('article',Article::getInfo()->toArray())
+            ->withTitle('MFFC :-)')
             ->withFuckMe('OK!');
-
-//        $this->view = View::make('home')
-//            ->with('article',Article::getInfo()->toArray())
-//            ->withTitle('MFFC :-)')
-//            ->withFuckMe('OK!');
 
     }
 

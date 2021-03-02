@@ -47,13 +47,21 @@ class View
         return BASE_PATH . self::VIEW_BASE_PATH . $filePath . '.php';
     }
 
-    public function __call($method, $parameters)
+    public function __call($function,$args)
     {
-        if (starts_with($method, 'with'))
-        {
-            return $this->with(snake_case(substr($method, 4)), $parameters[0]);
-        }
-
-        throw new BadMethodCallException("方法 [$method] 不存在！.");
+        print_r($function);
+        die();
+        $this->view = call_user_func($function,$this->view,$args[0]);
+        return $this;
     }
+
+//    public function __call($method, $parameters)
+//    {
+//        if (starts_with($method, 'with'))
+//        {
+//            return $this->with(snake_case(substr($method, 4)), $parameters[0]);
+//        }
+//
+//        throw new BadMethodCallException("方法 [$method] 不存在！.");
+//    }
 }
