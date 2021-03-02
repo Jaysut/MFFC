@@ -13,6 +13,13 @@ class RedisService
         self::$redis = new Client( require BASE_PATH . self::CONFIG_FILE);
     }
 
+    /**
+     * 写入
+     * @param      $key
+     * @param      $value
+     * @param null $time
+     * @param null $unit
+     */
     public static function set($key, $value, $time = null, $unit = null)
     {
         self::init();
@@ -50,6 +57,12 @@ class RedisService
         }
     }
 
+    /**
+     * 获取
+     * @param $key
+     *
+     * @return mixed
+     */
     public static function get($key)
     {
         self::init();
@@ -57,12 +70,19 @@ class RedisService
         return self::$redis->get($key);
     }
 
+    /**
+     * 删除
+     * @param $key
+     *
+     * @return mixed
+     */
     public static function delete($key)
     {
         self::init();
 
         return self::$redis->del($key);
     }
+
 
     private static function _setex($key, $value, $time)
     {
